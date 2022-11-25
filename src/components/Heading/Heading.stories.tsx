@@ -6,7 +6,7 @@ export default {
   component: Heading,
   args: {
     children: 'Heading Text',
-    size: 'xl',
+    size: 'xl'
   },
 
   argTypes: {
@@ -15,7 +15,7 @@ export default {
       control: {
         type: 'select'
       },
-      options: ['xl', 'lg', 'md', 'sm'],
+      options: ['xl', 'lg', 'md', 'sm']
     }
   }
 } as Meta<HeadingProps>;
