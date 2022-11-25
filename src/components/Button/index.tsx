@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 export interface ButtonRootProps {
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'quinary';
-  className: string;
+  className?: string;
 }
 
 function ButtonRoot({
