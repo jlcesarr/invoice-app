@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: ['src/**/*.tsx'],
   theme: {
     fontSize: {
@@ -38,8 +39,10 @@ module.exports = {
         primary: '#FF9797'
       },
       white: {
-        primary: '#F8F8FB'
-      }
+        primary: '#F8F8FB',
+        secondary: '#F9FAFE'
+      },
+      charcoal: '#373B53'
     },
     extend: {
       fontFamily: {
