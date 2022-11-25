@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Spartan Medium';
+  src: url('../../public/fonts/Spartan-Medium.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Spartan Bold';
+  src: url('../../public/fonts/Spartan-Bold.ttf');
+  font-weight: 500;
+}
