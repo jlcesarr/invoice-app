@@ -11,23 +11,21 @@ export default {
     size: {
       description: 'Size of body text',
       control: 'select',
-      options: ['lg', 'sm'],
+      options: ['lg', 'sm']
     },
-    children:
-    {
+    children: {
       type: {
         name: 'string'
       }
     }
-  },
-
+  }
 } as Meta<TextProps>;
 
 export const Default: StoryObj<TextProps> = {
   name: 'Large',
   args: {
     size: 'lg'
-  },
+  }
 };
 
 export const Small: StoryObj<TextProps> = {
@@ -35,5 +33,3 @@ export const Small: StoryObj<TextProps> = {
     size: 'sm'
   }
 };
-
-
