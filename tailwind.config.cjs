@@ -10,6 +10,9 @@ module.exports = {
       lg: 20,
       xl: 32
     },
+    boxShadow: {
+      dropdown: '0px 10px 20px rgba(72, 84, 159, 0.25)'
+    },
     colors: {
       violet: {
         primary: '#7C5DFA',
