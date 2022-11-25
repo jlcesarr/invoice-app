@@ -1,9 +1,11 @@
 import clsx from 'clsx';
+import React from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-constraint
 export interface TextProps {
-  size: 'lg' | 'sm';
+  size?: 'lg' | 'sm';
   children: string;
-  className: string;
+  className?: string;
 }
 
 function Text({ size = 'lg', children, className }: TextProps) {
