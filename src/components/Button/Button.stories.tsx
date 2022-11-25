@@ -10,7 +10,6 @@ export default {
   },
   argTypes: {
     variant: {
-      defaultValue: 'primary',
       control: {
         type: 'select',
         options: ['primary', 'secondary', 'tertiary', 'quaternary', 'quinary']
@@ -28,8 +27,8 @@ export const Default: StoryObj<ButtonRootProps> = {
   name: 'Primary'
 };
 
-export const WithIcon: StoryObj<ButtonRootProps> = {
-  name: 'With Icon',
+export const PrimaryHovered: StoryObj<ButtonRootProps> = {
+  name: 'Primary Hovered',
   args: {
     variant: 'primary',
     children: (
@@ -40,6 +39,9 @@ export const WithIcon: StoryObj<ButtonRootProps> = {
         New Invoice
       </>
     )
+  },
+  parameters: {
+    pseudo: { hover: true }
   }
 };
 
@@ -51,11 +53,33 @@ export const SecondaryLight: StoryObj<ButtonRootProps> = {
   }
 };
 
+export const SecondaryLightHovered: StoryObj<ButtonRootProps> = {
+  name: 'Secondary Hovered',
+  args: {
+    variant: 'secondary',
+    children: 'Button'
+  },
+  parameters: {
+    pseudo: { hover: true }
+  }
+};
+
 export const TertiaryLight: StoryObj<ButtonRootProps> = {
   name: 'Tertiary',
   args: {
     variant: 'tertiary',
     children: 'Button'
+  }
+};
+
+export const TertiaryLightHovered: StoryObj<ButtonRootProps> = {
+  name: 'Tertiary Hovered',
+  args: {
+    variant: 'tertiary',
+    children: 'Button'
+  },
+  parameters: {
+    pseudo: { hover: true }
   }
 };
 
@@ -67,10 +91,46 @@ export const Quaternary: StoryObj<ButtonRootProps> = {
   }
 };
 
+export const QuaternaryLightHovered: StoryObj<ButtonRootProps> = {
+  name: 'Quaternary Hovered',
+  args: {
+    variant: 'quaternary',
+    children: 'Button'
+  },
+  parameters: {
+    pseudo: { hover: true }
+  }
+};
+
 export const Quinary: StoryObj<ButtonRootProps> = {
   name: 'Quinary',
   args: {
     variant: 'quinary',
     children: 'Button'
+  }
+};
+
+export const QuinaryLightHovered: StoryObj<ButtonRootProps> = {
+  name: 'Quinary Hovered',
+  args: {
+    variant: 'quinary',
+    children: 'Button'
+  },
+  parameters: {
+    pseudo: { hover: true }
+  }
+};
+
+export const WithIcon: StoryObj<ButtonRootProps> = {
+  name: 'With Icon',
+  args: {
+    children: (
+      <>
+        <Button.IconWrapper>
+          <PlusIcon />
+        </Button.IconWrapper>
+        New Invoice
+      </>
+    )
   }
 };
