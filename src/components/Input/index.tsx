@@ -3,7 +3,7 @@ import {
   LabelHTMLAttributes,
   ReactElement,
   useMemo,
-  SyntheticEvent
+  useRef
 } from 'react';
 import clsx from 'clsx';
 import { ArrowDownIcon } from '../Icons/ArrowDownIcon';
@@ -26,7 +26,7 @@ interface InputLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
 function InputLabel({ children, ...labelProps }: InputLabelProps) {
   return (
     <label
-      className="text-ube-primary font-spartan-medium text-sm leading-[15px] tracking-[-0.25px] "
+      className="text-ube-primary font-spartan-medium text-sm leading-[15px] tracking-[-0.25px]"
       {...labelProps}
     >
       {children}
@@ -63,27 +63,28 @@ interface InputDropdownFieldProps extends InputsProps {
 }
 
 function InputDropdownField({ className, options }: InputDropdownFieldProps) {
-  const [selectedOption, setSelectedOption] = useState<null | string>(null);
+  const [selectedOption, setSelectedOption] = useState<null | string>(
+    () => options[0] || null
+  );
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const isDefaultOption = useRef(true);
 
   const stylingClasses = useMemo(
     () =>
       clsx(
-        'font-spartan-bold text-black-primary text-sm leading-[15px] tracking-[-0.25px] flex flex-col gap-[16px]',
+        'font-spartan-bold text-black-primary text-sm leading-[15px] tracking-[-0.25px] flex flex-col gap-[16px] cursor-pointer',
         className
       ),
     [className]
   );
 
-  function handleToggle(ev: SyntheticEvent<HTMLDivElement>) {
-    if (ev.currentTarget?.dataset?.toggler && !isOpen) {
-      setIsOpen((prevState) => !prevState);
-    }
+  function handleToggle() {
+    setIsOpen((prevState) => !prevState);
   }
 
   function handleOptionChoice(option: string) {
+    isDefaultOption.current = false;
     setSelectedOption(option);
-    setIsOpen(false);
   }
 
   if (options.length <= 0) {
@@ -91,15 +92,20 @@ function InputDropdownField({ className, options }: InputDropdownFieldProps) {
   }
 
   return (
-    <div className={stylingClasses} data-toggler="1" onClick={handleToggle}>
+    <div className={stylingClasses} data-toggler="true" onClick={handleToggle}>
       <div
         className={clsx(
           'box-border flex justify-between items-center w-full bg-[#FFF] border-[1px] border-[#DFE3FA] px-5 py-4 rounded',
-          { 'border-violet-primary': isOpen || selectedOption }
+          {
+            'border-violet-primary':
+              isOpen || (selectedOption && !isDefaultOption.current)
+                ? true
+                : false
+          }
         )}
       >
-        <span className="read-only">{selectedOption || options[0]}</span>
-        <div className="cursor-pointer flex-grow-1 box-border">
+        <span className="select-none">{selectedOption}</span>
+        <div className="flex-grow-1 box-border">
           <ArrowDownIcon />
         </div>
       </div>
@@ -111,7 +117,7 @@ function InputDropdownField({ className, options }: InputDropdownFieldProps) {
               <button
                 type="button"
                 className={clsx('w-full py-1')}
-                onClick={(_) => handleOptionChoice(option)}
+                onClick={() => handleOptionChoice(option)}
                 key={`${index}_option`}
               >
                 <Heading
