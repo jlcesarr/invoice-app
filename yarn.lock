@@ -9638,6 +9638,11 @@ raw-loader@^4.0.2:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
+react-day-picker@^8.3.7:
+  version "8.3.7"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.3.7.tgz#35de1325376984e4dbaec1fed6888f45dc46ad1d"
+  integrity sha512-sQvyJde6OKsXIB0ZFwUBmaDNb4IyKypv/uSyauQ6AUw4F6vmPijJsQNEVsxrxXQ4L3GZKIpcCD/7Pftz/sLegA==
+
 react-docgen-typescript@^2.1.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/react-docgen-typescript/-/react-docgen-typescript-2.2.2.tgz#4611055e569edc071204aadb20e1c93e1ab1659c"
