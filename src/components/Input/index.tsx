@@ -19,7 +19,7 @@ function InputRoot({ children }: InputRootProps) {
 
 InputRoot.displayName = 'Input.Root';
 
-interface InputLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+export interface InputLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   children: string;
 }
 
